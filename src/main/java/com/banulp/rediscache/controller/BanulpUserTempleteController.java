@@ -3,6 +3,7 @@ package com.banulp.rediscache.controller;
 import com.banulp.rediscache.model.BanulpUser;
 import com.banulp.rediscache.model.BanulpUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -21,6 +22,12 @@ public class BanulpUserTempleteController {
     public Map<String, BanulpUser> GetAll() {
         return banulpUserRepository.findAll();
     }
+
+    // converter 등록된 것 확인해야
+//    @RequestMapping(value = "/all1", produces = MediaType.APPLICATION_XML_VALUE)
+//    public Map<String, BanulpUser> GetAll1() {
+//        return banulpUserRepository.findAll();
+//    }
 
     @GetMapping("/all/{id}")
     public BanulpUser GetAll(@PathVariable("id") final String id) {
